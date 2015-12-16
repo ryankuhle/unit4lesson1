@@ -16,8 +16,16 @@ test_X, test_y = X[700:], y[700:]
 train_df = pd.DataFrame({'X': train_X, 'y': train_y})
 test_df = pd.DataFrame({'X': test_X, 'y': test_y})
 
+train_df.plot(style=['o','rx'])
+
 # linear fit
 poly_1 = smf.ols(formula='y ~ 1 + X', data=train_df).fit()
 
+
 # quadratic fit
 poly_1 = smf.ols(formula='y ~ 1 + X + I(X**2)', data=train_df).fit()
+
+
+'''
+Using mean squared error as a metric, compare the performance of different polynomial curves in the training set and in the testing set. Submit your project as overfitting.py.
+'''
